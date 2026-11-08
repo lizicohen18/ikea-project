@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="איקאה - רהיטים ועיצוב לבית (פרויקט לימודי HTML+CSS)">
+  <title>הזמנה | IKEA</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/order.css">
+</head>
+<body>
+  <header>
+    <p class="top-bar">משלוח חינם בהזמנה מעל 499 ₪ · שירות לקוחות: 03-9999999</a></p>
+    <div class="header-inner">
+      <a class="logo" href="../index.html" title="לדף הבית">
+        <img src="../files/images/logo.svg" alt="לוגו IKEA">
+      </a>
+      <nav class="main-nav" aria-label="ניווט ראשי">
+        <ul>
+          <li><a href="../index.html">דף הבית</a></li>
+          <li><a href="living-room.html">סלון</a></li>
+          <li><a href="kitchen.html">מטבח</a></li>
+          <li><a href="about.html">אודות</a></li>
+          <li><a href="order.html" aria-current="page" class="cart-link">הזמנה</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page">
+    <main>
+      <h1>טופס הזמנה</h1>
+      <p class="lead">מלאו את הפרטים ונחזור אליכם לאישור ההזמנה. שדות עם <span class="req">*</span> הם חובה.</p>
+
+      <form class="order-form" action="success.html" method="get">
+        <fieldset>
+          <legend>פרטים אישיים</legend>
+          <div class="field">
+            <label for="fname">שם פרטי <span class="req">*</span></label>
+            <input type="text" id="fname" name="fname" required minlength="2" maxlength="20"
+              pattern="[A-Za-zא-ת ]+" title="אותיות בלבד" placeholder="ישראלה">
+          </div>
+          <div class="field">
+            <label for="lname">שם משפחה <span class="req">*</span></label>
+            <input type="text" id="lname" name="lname" required minlength="2" pattern="[A-Za-zא-ת ]+"
+              title="אותיות בלבד" placeholder="ישראלי">
+          </div>
+          <div class="field">
+            <label for="email">אימייל <span class="req">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="name@example.com">
+          </div>
+          <div class="field">
+            <label for="phone">טלפון נייד <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" required pattern="05[0-9]-?[0-9]{7}"
+              title="מספר נייד ישראלי, לדוגמה 050-1234567" placeholder="050-1234567">
+          </div>
+          <div class="field">
+            <label for="city">עיר <span class="req">*</span></label>
+            <input type="text" id="city" name="city" list="cities" required>
+            <datalist id="cities">
+              <option value="תל אביב"><option value="ירושלים"><option value="בני ברק">
+              <option value="ראשון לציון"><option value="נתניה"><option value="באר שבע">
+            </datalist>
+          </div>
+          <div class="field">
+            <label for="address">כתובת</label>
+            <input type="text" id="address" name="address" placeholder="רחוב ומספר בית">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>פרטי ההזמנה</legend>
+          <div class="field">
+            <label for="product">מוצר <span class="req">*</span></label>
+            <select id="product" name="product" required>
+              <option value="">-- בחרו מוצר --</option>
+              <optgroup label="סלון">
+                <option value="sofa">EKTORP ספה – 2,499 ₪</option>
+                <option value="armchair">STRANDMON כורסה – 1,299 ₪</option>
+                <option value="table">LACK שולחן – 149 ₪</option>
+                <option value="lamp">HEKTAR מנורה – 299 ₪</option>
+                <option value="shelf">KALLAX מדפים – 399 ₪</option>
+                <option value="bed">MALM מיטה – 1,199 ₪</option>
+              </optgroup>
+              <optgroup label="מטבח">
+                <option value="cabinet">METOD ארון – 899 ₪</option>
+                <option value="chair">ADDE כיסא – 79 ₪</option>
+                <option value="stool">FROSTA שרפרף – 59 ₪</option>
+                <option value="pot">OUMBÄRLIG סיר – 129 ₪</option>
+                <option value="mugs">FÄRGRIK ספלים – 39 ₪</option>
+                <option value="plates">DINERA צלחות – 89 ₪</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qty">כמות <span class="req">*</span></label>
+            <input type="number" id="qty" name="qty" min="1" max="10" value="1" required>
+          </div>
+          <div class="field">
+            <label for="color">צבע מועדף</label>
+            <input type="color" id="color" name="color" value="#0058a3">
+          </div>
+          <div class="field">
+            <label for="date">תאריך משלוח רצוי <span class="req">*</span></label>
+            <input type="date" id="date" name="date" min="2027-01-01" max="2027-12-31" required>
+          </div>
+          <div class="field">
+            <label for="time">שעה מועדפת</label>
+            <input type="time" id="time" name="time" min="08:00" max="20:00" step="1800">
+          </div>
+          <div class="field">
+            <label for="rating">כמה אתם מרוצים מהאתר? (1-10)</label>
+            <input type="range" id="rating" name="rating" min="1" max="10" value="8">
+          </div>
+
+          <div class="field full">
+            <span class="group-label">שיטת משלוח <span class="req">*</span></span>
+            <div class="choices">
+              <label><input type="radio" name="delivery" value="home" required checked> משלוח עד הבית</label>
+              <label><input type="radio" name="delivery" value="pickup"> איסוף עצמי מהחנות</label>
+              <label><input type="radio" name="delivery" value="locker"> נקודת איסוף</label>
+            </div>
+          </div>
+          <div class="field full">
+            <span class="group-label">שירותים נוספים</span>
+            <div class="choices">
+              <label><input type="checkbox" name="extra" value="assembly"> הרכבה</label>
+              <label><input type="checkbox" name="extra" value="removal"> פינוי רהיט ישן</label>
+              <label><input type="checkbox" name="extra" value="gift"> אריזת מתנה</label>
+            </div>
+          </div>
+          <div class="field full">
+            <label for="notes">הערות להזמנה</label>
+            <textarea id="notes" name="notes" rows="4" maxlength="300" placeholder="קומה, קוד כניסה וכו'"></textarea>
+          </div>
+        </fieldset>
+
+        <label class="terms"><input type="checkbox" name="terms" required> קראתי ואני מסכים/ה <a href="about.html">לתנאי השימוש</a> <span class="req">*</span></label>
+
+        <div class="actions">
+          <button type="submit" class="btn">שליחת הזמנה</button>
+          <button type="reset" class="btn secondary">איפוס טופס</button>
+        </div>
+      </form>
+    </main>
+    <aside>
+      <h2>צריכים עזרה?</h2>
+      <ul>
+        <li>☎ התקשרו אלינו</a></li>
+        <li><a href="mailto:service@ikea-project.co.il">✉ שלחו מייל</a></li>
+        <li><a href="../files/docs/catalog-2027.pdf" download>⬇ הורדת הקטלוג</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="footer-cols">
+      <section>
+        <h3>קניות</h3>
+        <ul>
+          <li><a href="living-room.html">ריהוט לסלון</a></li>
+          <li><a href="kitchen.html">מטבח ופינת אוכל</a></li>
+          <li><a href="../files/docs/catalog-2027.pdf" download>הורדת קטלוג (PDF)</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>צרו קשר</h3>
+        <ul>
+          <li>☎ 03-9999999</a></li>
+          <li><a href="mailto:service@ikea-project.co.il?subject=פנייה מהאתר">✉ service@ikea-project.co.il</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>החנות בנתניה</h3>
+        <address>פולג, רחוב הסדנאות 6<br>א'-ה' 10:00-22:00</address>
+      </section>
+      <section>
+        <h3>מפה</h3>
+        <iframe title="מפת החנות" loading="lazy"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=34.86%2C32.27%2C34.88%2C32.29&amp;layer=mapnik"></iframe>
+      </section>
+    </div>
+    <p class="copyright">© 2027 כל הזכויות שמורות · <a href="about.html">אודות</a> · פרויקט לימודי, אינו האתר הרשמי של IKEA</p>
+  </footer>
+</body>
+</html>

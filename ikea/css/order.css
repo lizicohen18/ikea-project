@@ -1,0 +1,134 @@
+/* order.css - עיצוב ייחודי לדף ההזמנה */
+
+.lead {
+  color: var(--muted);
+}
+
+.req {
+  color: #cc0008;
+}
+
+.order-form fieldset {
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 4%;
+}
+
+.order-form legend {
+  font-weight: 900;
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+  color: var(--blue);
+}
+
+.field {
+  flex: 1 1 48%;
+  display: flex;
+  flex-direction: column;
+}
+
+.field.full {
+  flex-basis: 100%;
+}
+
+.field label,
+.group-label {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.order-form input:not([type="radio"], [type="checkbox"], [type="color"], [type="range"]),
+.order-form select,
+.order-form textarea {
+  font: inherit;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.order-form input:focus,
+.order-form select:focus,
+.order-form textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0, 88, 163, 0.2);
+}
+
+/* בדיקות תקינות - חיווי ויזואלי רק אחרי שהמשתמש הקליד */
+.order-form input:user-invalid,
+.order-form select:user-invalid {
+  border-color: #cc0008;
+  background-color: #fff5f5;
+}
+
+.order-form input:user-valid {
+  border-color: #0a8a0a;
+}
+
+.order-form input[type="color"] {
+  width: 60px;
+  height: 42px;
+  border: none;
+  cursor: pointer;
+}
+
+.order-form input[type="range"] {
+  accent-color: var(--blue);
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.choices label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.choices input {
+  accent-color: var(--blue);
+}
+
+/* סימון הבחירה הנוכחית בעזרת :has */
+.choices label:has(input:checked) {
+  border-color: var(--blue);
+  background-color: #e8f1fa;
+}
+
+.terms {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* כפתור שליחה מושבת ויזואלית כשהטופס לא תקין */
+.order-form:invalid button[type="submit"] {
+  opacity: 0.6;
+}
+
+@media (max-width: 700px) {
+  .field {
+    flex-basis: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
